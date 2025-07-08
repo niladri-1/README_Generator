@@ -1,7 +1,7 @@
 # 🚀 GitHub README Generator
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Sparkles.png" alt="Sparkles" width="50" height="50" />
+  <img src="app/preview.png" alt="Sparkles"/>
 
   **Create stunning GitHub profile READMEs in minutes**
 
@@ -115,8 +115,8 @@ The **GitHub README Generator** is a modern, intuitive web application that help
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/github-readme-generator.git
-   cd github-readme-generator
+   git clone https://github.com/niladri-1/README_Generator.git
+   cd README_Generator.git
    ```
 
 2. **Install dependencies**
@@ -495,8 +495,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/github-readme-generator/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/github-readme-generator/discussions)
+- **Issues**: [GitHub Issues](https://github.com/niladri-1/README_Generator/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/niladri-1/README_Generator/discussions)
 - **Email**: code.niladri+readme@gmail.com
 
 ---
@@ -504,7 +504,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 <div align="center">
   <img src="https://raw.githubusercontent.com/Trilokia/Trilokia/379277808c61ef204768a61bbc5d25bc7798ccf1/bottom_header.svg" />
 
-  **Made with ❤️ by developers, for developers**
+  **Made with ❤️ by [Niladri Chatterjee](https://github.com/niladri-1), for developers**
 
   ⭐ **Star this repo if you found it helpful!** ⭐
 </div>
