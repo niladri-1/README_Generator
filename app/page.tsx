@@ -122,20 +122,21 @@ export default function Home() {
       <Header />
       
       <main className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-2 gap-8 h-[calc(100vh-200px)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 min-h-[calc(100vh-200px)]">
           <EditorPanel readmeData={readmeData} setReadmeData={setReadmeData} />
           <PreviewPanel readmeData={readmeData} />
         </div>
       </main>
 
-      <div className="fixed bottom-6 right-6 flex gap-3">
+      <div className="fixed bottom-4 right-4 lg:bottom-6 lg:right-6 flex gap-2 lg:gap-3 z-50">
         <Button
           onClick={() => setShowExportDialog(true)}
-          className="bg-gray-800 hover:bg-gray-700 text-white border border-gray-600 shadow-lg hover:shadow-xl transition-all duration-300 font-medium hover:border-gray-500"
-          size="lg"
+          className="bg-gray-800 hover:bg-gray-700 text-white border border-gray-600 shadow-lg hover:shadow-xl transition-all duration-300 font-medium hover:border-gray-500 text-sm lg:text-base"
+          size="default"
         >
-          <Download className="w-4 h-4 mr-2" />
-          Export README
+          <Download className="w-4 h-4 mr-1 lg:mr-2" />
+          <span className="hidden sm:inline">Export README</span>
+          <span className="sm:hidden">Export</span>
         </Button>
       </div>
 

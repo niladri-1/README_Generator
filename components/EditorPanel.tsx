@@ -33,33 +33,33 @@ export function EditorPanel({ readmeData, setReadmeData }: EditorPanelProps) {
   ];
 
   return (
-    <Card className="bg-gray-800/50 border-gray-700 h-full">
+    <Card className="bg-gray-800/50 border-gray-700 h-full min-h-[500px] lg:min-h-full">
       <CardHeader className="pb-4">
-        <CardTitle className="text-white flex items-center gap-2">
-          <Code className="w-5 h-5" />
+        <CardTitle className="text-white flex items-center gap-2 text-lg lg:text-xl">
+          <Code className="w-4 h-4 lg:w-5 lg:h-5" />
           README Editor
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-0 h-[calc(100%-80px)]">
+      <CardContent className="p-0 h-[calc(100%-60px)] lg:h-[calc(100%-80px)]">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="h-full">
-          <TabsList className="grid grid-cols-7 bg-gray-900/50 m-4 mb-0">
+          <TabsList className="grid grid-cols-7 bg-gray-900/50 mx-2 lg:mx-4 mt-2 lg:mt-4 mb-0 h-auto">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
                 <TabsTrigger
                   key={tab.id}
                   value={tab.id}
-                  className="data-[state=active]:bg-gray-700 data-[state=active]:text-white text-gray-400 flex flex-col items-center gap-1 p-2"
+                  className="data-[state=active]:bg-gray-700 data-[state=active]:text-white text-gray-400 flex flex-col items-center gap-0.5 lg:gap-1 p-1 lg:p-2 text-xs"
                 >
-                  <Icon className="w-4 h-4" />
-                  <span className="text-xs hidden lg:block">{tab.label}</span>
+                  <Icon className="w-3 h-3 lg:w-4 lg:h-4" />
+                  <span className="text-[10px] lg:text-xs hidden sm:block">{tab.label}</span>
                 </TabsTrigger>
               );
             })}
           </TabsList>
 
-          <ScrollArea className="h-[calc(100%-60px)] px-4">
-            <div className="py-4 space-y-6">
+          <ScrollArea className="h-[calc(100%-50px)] lg:h-[calc(100%-60px)] px-2 lg:px-4">
+            <div className="py-2 lg:py-4 space-y-4 lg:space-y-6">
               <TabsContent value="header" className="mt-0">
                 <HeaderSection readmeData={readmeData} setReadmeData={setReadmeData} />
               </TabsContent>

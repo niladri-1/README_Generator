@@ -127,11 +127,11 @@ export function SkillsSection({ readmeData, setReadmeData }: SkillsSectionProps)
       {/* Skill Browser */}
       <Card className="bg-gray-700/50 border-gray-600">
         <CardHeader>
-          <CardTitle className="text-white text-lg">Browse & Add Skills</CardTitle>
+          <CardTitle className="text-white text-base lg:text-lg">Browse & Add Skills</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-3 lg:space-y-4">
           {/* Category Tabs */}
-          <div className="flex flex-wrap gap-2">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1 lg:gap-2">
             {skillCategories.map((category) => (
               <Button
                 key={category.key}
@@ -140,8 +140,8 @@ export function SkillsSection({ readmeData, setReadmeData }: SkillsSectionProps)
                 size="sm"
                 className={
                   activeCategory === category.key
-                    ? "bg-blue-600 hover:bg-blue-700 text-white border-blue-600"
-                    : "bg-gray-800 hover:bg-gray-700 text-white border border-gray-600 hover:border-gray-500"
+                    ? "bg-blue-600 hover:bg-blue-700 text-white border-blue-600 text-xs lg:text-sm"
+                    : "bg-gray-800 hover:bg-gray-700 text-white border border-gray-600 hover:border-gray-500 text-xs lg:text-sm"
                 }
               >
                 {category.label}
@@ -151,36 +151,36 @@ export function SkillsSection({ readmeData, setReadmeData }: SkillsSectionProps)
 
           {/* Search */}
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+            <Search className="absolute left-2 lg:left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-3 h-3 lg:w-4 lg:h-4" />
             <Input
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder={`Search ${skillCategories.find(c => c.key === activeCategory)?.label.toLowerCase()}...`}
-              className="bg-gray-800 border-gray-600 text-white placeholder-gray-400 pl-10"
+              className="bg-gray-800 border-gray-600 text-white placeholder-gray-400 pl-8 lg:pl-10 text-sm lg:text-base"
             />
           </div>
 
           {/* Skills Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-60 overflow-y-auto">
+          <div className="grid grid-cols-1 gap-1 lg:gap-2 max-h-48 lg:max-h-60 overflow-y-auto">
             {memoizedFilteredSkills.map((skill) => {
               const isSelected = readmeData.skills[activeCategory].includes(skill.name);
               return (
                 <div
                   key={skill.name}
                   onClick={() => !isSelected && addSkill(skill.name, activeCategory)}
-                  className={`p-2 rounded-lg border cursor-pointer transition-all ${
+                  className={`p-1.5 lg:p-2 rounded-lg border cursor-pointer transition-all ${
                     isSelected
                       ? 'border-green-500 bg-green-500/10 cursor-not-allowed'
                       : 'border-gray-600 hover:border-blue-500 hover:bg-blue-500/10'
                   }`}
                 >
-                  <div className="flex items-center gap-2">
-                    <img src={skill.icon} alt={skill.name} className="h-6" />
-                    <span className={`text-sm ${isSelected ? 'text-green-400' : 'text-white'}`}>
+                  <div className="flex items-center gap-1 lg:gap-2">
+                    <img src={skill.icon} alt={skill.name} className="h-5 lg:h-6" />
+                    <span className={`text-xs lg:text-sm ${isSelected ? 'text-green-400' : 'text-white'}`}>
                       {skill.name}
                     </span>
                     {isSelected && (
-                      <span className="text-green-400 text-xs ml-auto">✓ Added</span>
+                      <span className="text-green-400 text-[10px] lg:text-xs ml-auto">✓ Added</span>
                     )}
                   </div>
                 </div>
@@ -197,8 +197,8 @@ export function SkillsSection({ readmeData, setReadmeData }: SkillsSectionProps)
 
         return (
           <div key={category.key} className="space-y-3">
-            <Label className="text-white text-sm font-medium">{category.label}</Label>
-            <div className="flex flex-wrap gap-2">
+            <Label className="text-white text-sm lg:text-base font-medium">{category.label}</Label>
+            <div className="flex flex-wrap gap-1 lg:gap-2">
               {categorySkills.map((skill, index) => {
                 const skillData = skillsDatabase[category.key as keyof typeof skillsDatabase]
                   .find(s => s.name === skill);
@@ -206,11 +206,11 @@ export function SkillsSection({ readmeData, setReadmeData }: SkillsSectionProps)
                 return (
                   <div key={index} className="relative group">
                     {skillData ? (
-                      <img src={skillData.icon} alt={skill} className="h-8" />
+                      <img src={skillData.icon} alt={skill} className="h-6 lg:h-8" />
                     ) : (
                       <Badge
                         variant="secondary"
-                        className="bg-gray-700 text-white hover:bg-gray-600 pr-1"
+                        className="bg-gray-700 text-white hover:bg-gray-600 pr-1 text-xs lg:text-sm"
                       >
                         {skill}
                       </Badge>
@@ -219,9 +219,9 @@ export function SkillsSection({ readmeData, setReadmeData }: SkillsSectionProps)
                       onClick={() => removeSkill(category.key, index)}
                       size="sm"
                       variant="ghost"
-                      className="absolute -top-2 -right-2 h-5 w-5 p-0 bg-red-600 hover:bg-red-700 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute -top-1 lg:-top-2 -right-1 lg:-right-2 h-4 w-4 lg:h-5 lg:w-5 p-0 bg-red-600 hover:bg-red-700 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                     >
-                      <X className="w-3 h-3" />
+                      <X className="w-2 h-2 lg:w-3 lg:h-3" />
                     </Button>
                   </div>
                 );

@@ -44,35 +44,35 @@ export function ExportDialog({ open, onOpenChange, readmeData }: ExportDialogPro
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl max-h-[80vh] bg-gray-800 border-gray-700">
+      <DialogContent className="w-[95vw] max-w-4xl max-h-[90vh] lg:max-h-[80vh] bg-gray-800 border-gray-700 mx-auto">
         <DialogHeader>
-          <DialogTitle className="text-white">Export README</DialogTitle>
-          <DialogDescription className="text-gray-400">
+          <DialogTitle className="text-white text-lg lg:text-xl">Export README</DialogTitle>
+          <DialogDescription className="text-gray-400 text-sm lg:text-base">
             Copy the generated README markdown or download it as a file.
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4">
+        <div className="space-y-3 lg:space-y-4">
           <Textarea
             value={markdownContent}
             readOnly
-            className="min-h-[400px] bg-gray-900 border-gray-600 text-gray-300 font-mono text-sm"
+            className="min-h-[300px] lg:min-h-[400px] bg-gray-900 border-gray-600 text-gray-300 font-mono text-xs lg:text-sm"
           />
 
-          <div className="flex gap-3 justify-end">
+          <div className="flex flex-col sm:flex-row gap-2 lg:gap-3 justify-end">
             <Button
               onClick={copyToClipboard}
               variant="outline"
-              className="bg-gray-800 hover:bg-gray-700 text-white border border-gray-600 font-medium hover:border-gray-500"
+              className="bg-gray-800 hover:bg-gray-700 text-white border border-gray-600 font-medium hover:border-gray-500 text-sm lg:text-base"
             >
-              <Copy className="w-4 h-4 mr-2" />
+              <Copy className="w-3 h-3 lg:w-4 lg:h-4 mr-2" />
               Copy to Clipboard
             </Button>
             <Button
               onClick={downloadFile}
-              className="bg-gray-800 hover:bg-gray-700 text-white border border-gray-600 font-medium hover:border-gray-500"
+              className="bg-gray-800 hover:bg-gray-700 text-white border border-gray-600 font-medium hover:border-gray-500 text-sm lg:text-base"
             >
-              <Download className="w-4 h-4 mr-2" />
+              <Download className="w-3 h-3 lg:w-4 lg:h-4 mr-2" />
               Download File
             </Button>
           </div>
